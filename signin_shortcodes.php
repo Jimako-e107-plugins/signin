@@ -93,10 +93,10 @@ class plugin_signin_signin_shortcodes extends e_shortcode
 
 		// If logging in with email address - ignore pref and increase to 100 chars.
 		$maxLength = ($this->allowEmailLogin == 1 || $this->allowEmailLogin) ? 100 : varset($pref['loginname_maxlength'], 30);
-
+		$class = (!empty($parm['class'])) ? "class='" . $parm['class'] . "'" : "form-control tbox login user";
 		return "
 				<label class='sr-only' for='" . vartrue($parm['idprefix']) . "username'>" . $this->usernamePlaceholder . "</label>
-				<input class='form-control tbox login user' type='text' name='username' placeholder='" . $this->usernamePlaceholder . "' required='required' id='" . vartrue($parm['idprefix']) . "username' size='15' value='' maxlength='" . $maxLength . "' />\n";
+				<input {$class} type='text' name='username' placeholder='" . $this->usernamePlaceholder . "' required='required' id='" . vartrue($parm['idprefix']) . "username' size='15' value='' maxlength='" . $maxLength . "' />\n";
 	}
 
 
@@ -111,9 +111,11 @@ class plugin_signin_signin_shortcodes extends e_shortcode
 	{
 
 		$pref = e107::getPref();
+		$class = (!empty($parm['class'])) ? "class='" . $parm['class'] . "'" : "form-control tbox login pass";
+
 		$t_password = "
 				<label class='sr-only' for='" . vartrue($parm['idprefix']) . "userpass'>" . LAN_PASSWORD . "</label>
-				<input class='form-control tbox login pass' type='password' placeholder='" . LAN_PASSWORD . "' required='required' name='userpass' id='" . vartrue($parm['idprefix']) . "userpass' size='15' value='' maxlength='30' />\n";
+				<input {$class} type='password' placeholder='" . LAN_PASSWORD . "' required='required' name='userpass' id='" . vartrue($parm['idprefix']) . "userpass' size='15' value='' maxlength='30' />\n";
 
 		if (!USER && e107::getSession()->is('challenge') && varset($pref['password_CHAP'], 0))
 		{
