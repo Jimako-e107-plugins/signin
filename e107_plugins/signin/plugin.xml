@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e107Plugin name="Signin" version="1.0" date="2020-12-29" compatibility="2.0" installRequired="false" >
+<e107Plugin name="Signin" version="1.2" date="2026-06-05" compatibility="2.4" installRequired="false" >
 	<category>menu</category>
+	<screenshots>
+		<image>images/signin.jpg</image>
+	</screenshots>
 </e107Plugin>
