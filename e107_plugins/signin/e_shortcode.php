@@ -26,7 +26,7 @@ class signin_shortcodes extends e_shortcode
 	 */
 	function sc_signin($parm = null)  // Naming:  "sc_" + [plugin-directory] + '_uniquename'
 	{
-		e107::includeLan(e_PLUGIN."login_menu/languages/".e_LANGUAGE.".php");
+		e107::plugLan('signin', '', true);
 
 		$this->lsc = e107::getScBatch('signin', 'signin');
 
